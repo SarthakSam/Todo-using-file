@@ -59,7 +59,14 @@ app.post('/todo',function(req,res){
     res.send("");
 })
 
+app.set('port',process.env.PORT || 7000)
+app.listen(app.get('port'), function(err) {
 
-app.listen('3000',() => console.log("server listening to port 3000"))
-
+    if (!err)
+        console.log("Server started at localhost:7000");
+    else {
+        console.log("server not listening")
+        console.log(err)
+    }
+});
 
